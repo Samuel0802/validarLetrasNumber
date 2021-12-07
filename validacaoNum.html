@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validação</title>
+</head>
+
+<body>
+
+    <script>
+        /* 
+        var nomeProduto é o nome do name lá no seu input.
+
+           var patterns são as letras que serão permitido.
+         var patterns = /[^a-z-ã-ç-â-í-ì]/g;
+
+         se caso for número
+           var patterns =/[^0-9]/g;
+        */
+
+
+        //VALIDAÇÃO
+        var nomeProduto = document.querySelector('input[name=nome_produto]');
+        nomeProduto.onkeyup = function () {
+            var patterns = /[^a-z-ã-ç-â-í-ì]/g;
+            var caretPos = this.selectionStart;
+
+            this.value = nomeProduto.value.replace(patterns, '');
+            this.setSelectionRange(caretPos, caretPos);
+        }
+
+    </script>
+</body>
+
+</html>
